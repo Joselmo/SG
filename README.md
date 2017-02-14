@@ -1,2 +1,2 @@
-# SI
+# SG
 Sistemas Gráficos - UGR - IS
