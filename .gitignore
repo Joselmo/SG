@@ -1,1 +1,37 @@
+﻿###############
+##  LaTEX
+###############
+
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.bak
+
+## Build tool auxiliary files:
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+###############
+##  NetBeans
+###############
+
 /Prácticas/tutoriales/Tutorial_1/nbproject/private/
+/Prácticas/tutoriales/Tutorial_1/build/
+/Prácticas/Ejemplos/ejemplo01/build/
+/Prácticas/Ejemplos/ejemplo03/ejemplo03/nbproject/private/
+/Prácticas/Ejemplos/ejemplo03/ejemplo03/build/
+/Prácticas/Ejemplos/HelloJava3D/nbproject/private/
+/Prácticas/Ejemplos/HelloJava3D/build/

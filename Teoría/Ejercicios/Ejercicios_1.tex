@@ -1,0 +1,83 @@
+\documentclass[10pt,a4paper,titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{graphics,graphicx, float} %para incluir imágenes y colocarlas
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\usepackage[hidelinks]{hyperref} % Estilo para los enlaces
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = black, %Colour of internal links
+  citecolor   = blue %Colour of citations
+}
+\usepackage{url} % ,href} %para incluir URLs e hipervínculos dentro del texto (aunque hay que instalar href)
+
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO Y DATOS DEL ALUMNO
+%----------------------------------------------------------------------------------------
+
+
+\date{\normalsize\today} % Incluye la fecha actual
+
+
+\begin{document}
+\begin{center}
+{\Huge \emph{Sistemas Gráficos - Ejercicios - Tema 1} } \\
+\vspace{0.5cm}
+Autor: Jose Luis Martínez Ortiz\\
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+\vspace{1.5cm}
+\end{center}
+
+
+\date{\normalsize\today} % Incluye la fecha actual
+
+
+\section*{Ejercicio 1: En clase se han citado varios ámbitos en los que los sistemas gráficos forman parte
+fundamental, como el diseño industrial, el cine, la medicina o la arquitectura. Describa usted
+otras cuatro disciplinas profesionales o científicas que requieran de la participación
+inexcusable de los gráficos por ordenador para su correcto desempeño}
+\addcontentsline{toc}{section}{Ejercicio 1}
+Los Videojuegos, la arqueología, en la educación y la cartografía.
+
+\section*{Ejercicio 2: ¿Por qué no se han incluido disciplinas como ``procesamiento de imágenes'' y ``fotografía computacional''?.}
+\addcontentsline{toc}{section}{Ejercicio 2}
+Por que son disciplinas de la visión por computador, que está orientada al análisis de imágenes reales y los sistemas gráficos están orientados a la síntesis de modelos.
+
+\section*{Ejercicio 3: Describir brevemente en lenguaje natural con el máximo detalle la figura mostrada.}
+\addcontentsline{toc}{section}{Ejercicio 3}
+En la figura se puede ver un frame de una película de animación y está dividida horizontalmente por las partes que la componen, como son los modelos de mallas, la textura básica y luces simples y por ultimo la imagen final.
+En la franja de mallas se puede observar cómo están construidos los objetos. En la franja de textura tiene una textura que aplica o un color sólido para la base de la figura junto a la iluminación. En la ultima franja, el frame final, se aprecia ya texturas de calidad junto con todos los detalles como el pelo de Sury y un tratamiento de la iluminación completo, donde la luz se refleja de forma más realista.
+
+\section*{Ejercicio 4: Cuando ve una película de animación en el cine, ¿en qué se fija, en el guión o en los efectos más o menos realistas? ¿Recuerda el movimiento del pelo de ``Sulley'' en ``Monstruos SA''?
+¿Y el resbalar de la capa de ``Encantador'' sobre su caballo al llegar al castillo en ``Shrek''?}
+\addcontentsline{toc}{section}{Ejercicio 4}
+Suelo fijarme tanto en el guión como en los efectos, la animación por ordenador me fascina y cada año me sorprende con resultados más hiperrealistas. No me acuerdo de la Película Monstruos SA, 
+
+\section*{Ejercicio 6: Enumere las diferencias que hay entre modelar un edificio y digitalizarlo en 3D.}
+\addcontentsline{toc}{section}{Ejercicio 6}
+Para poder modelar un edificio es necesario un software de modelado 3D y un artista que sepa utilizarlo para reproducir el edificio y dedicarle mucho tiempo, tanto como detalle se desee. Para digitalizar un edificio hace falta un escaner ,laser o cualquier tecnología que permita el digitalizado de un modelo real y realizar la captura creando un modelo automáticamente.
+
+\section*{Ejercicio 7: ¿A cuál de los bloques de la siguiente figura pertenecerían las siguientes situaciones? ¿Por qué?}
+\addcontentsline{toc}{section}{Ejercicio 7}
+\textbf{Extracción de Requisitos no funcionales:} El cliente nos explica que quiere un videojuego ambientado en la Alhambra. El cliente nos explica que quiere el juego para PC (Windows) y Android. Desarrollamos una versión específica para la tarjeta Quadro K5000\\
+
+\textbf{Generación de Modelos3D (Modelado/Digitalización):} Modelamos con 3DStudio Max las partes arrasadas del Palacio de los Abencerrajes. Digitalizamos en 3D el Patio de los Leones para tener un modelo fiel de la realidad. Dibujamos un frame para enseñárselo al cliente.\\
+
+\textbf{Extracción de Requisitos funcionales:}  Creamos un nivel ambientado en el patio de los leones, con 100 millones de polígonos yuna serie de avatares humanos animados. Cambiamos la velocidad de los avatares en función de la potencia del equipo. Controlamos que no se supere un tope de polígonos en la escena.\\
+
+\section*{Ejercicio 8: ¿La definición de las coordenadas de textura, pertenece a la generación del modelo 3D o la visualización?}
+\addcontentsline{toc}{section}{Ejercicio 8}
+La definición de las coordenadas de textura pertenece a la generación del modelo 3D ya que en la generación de un modelo debe definirse todos los atributos como los vértices, triángulos, normales y también el mapeado de textura o la definición de las coordenadas de textura.
+
+
+\section*{Ejercicio 9: ¿En qué fase del sistema gráfico interviene OpenGL?}
+\addcontentsline{toc}{section}{Ejercicio 9}
+Prácticamente interviene en todas las fases pero en un sistema gráfico nos abstraemos de trabajar directamente con el con una capa software como Java 3D o X3D pero OpenGL interviene tanto en la generación del modelo, la transformación de dicho modelo, aplicarle propiedades como luces y materiales y por ultimo en la visualización para transformar en modelo 3D en una imagen 2D según unas propiedades indicadas.
+
+\end{document}
