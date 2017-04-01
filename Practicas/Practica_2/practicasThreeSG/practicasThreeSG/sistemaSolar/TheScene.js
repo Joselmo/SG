@@ -72,7 +72,10 @@ TheScene = function (renderer) {
    * @return La raiz de la rama del modelo
    */
   var createModel = function () {
-    var sol = new Estrella (10, 4000, 'sun.jpg');
+    var sol = new CuerpoCeleste(10,'tierra.jpg','tierra',
+	5,1,	// Periodo rotacion , sentido
+	5,1,30	// Periodo orbital, sentido, radio
+	);
     // Ejemplo de llamada a un método que está sobreescrito y en su sobreescritura llama al mismo método de la superclase. Verlo en las clases Astro y Estrella
     sol.metodo();
     return sol;
