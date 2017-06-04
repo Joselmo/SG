@@ -1,14 +1,14 @@
 // Clase principal
 
-CuerpoCeleste = function(radio, textura, nombre,  periodoRotacion,  sentidoRotacion,
+CuerpoCeleste = function(radio, textura, name,  periodoRotacion,  sentidoRotacion,
      periodoOrbita,  sentidoOrbita, radioOrbita){
 			
 	// Hereda de Object3D		
 	THREE.Object3D.call (this);		
 	// Las variables   var   son variables  locales  al constructor. No son accesibles desde los métodos prototipo.
-   console.log ('HOLAA!');
 	var cargadorTextura = new THREE.TextureLoader();
 	
+	this.nombre = name;
 	this.texturaCargada = cargadorTextura.load (textura);
 	
 
@@ -20,6 +20,15 @@ CuerpoCeleste = function(radio, textura, nombre,  periodoRotacion,  sentidoRotac
           map: this.texturaCargada
         })
     );
+	
+	
+	////////////////////////////////////////
+	////	Satélites 
+	////////////////////////////////////////
+	this.satelites  = [];
+	
+	
+	
 	
 	var rotacionInicial = { angulo : 0 };
 	var rotacionFinal = { angulo : 2 * Math.PI };
@@ -51,26 +60,31 @@ CuerpoCeleste = function(radio, textura, nombre,  periodoRotacion,  sentidoRotac
 	///////////////////////////////////////////
 	//	Orbita del CuerpoCeleste
 	///////////////////////////////////////////
+	var interpoladorOrb;
+	
 	var rotacionInicialOrb = { angulo : 0 };
 	var rotacionFinalOrb = { angulo : 2 * Math.PI };
-	var orbita = new THREE.Object3D();//create an empty container
-	var interpoladorOrb = new TWEEN.Tween(rotacionInicialOrb).to(rotacionFinalOrb, periodoOrbita*1000)
+	this.orbita = new THREE.Object3D();//create an empty container
+	var orbita_aux = this.orbita;
+	
+	this.interpoladorOrb = new TWEEN.Tween(rotacionInicialOrb).to(rotacionFinalOrb, periodoOrbita*1000)
     .onUpdate (function(){
       // Dentro de esta función podemos acceder a  this.elCuerpoCeleste  
 	  // gracias a la referencia que hemos almacenado previamente en CuerpoCeleste
-      orbita.rotation.y = rotacionInicialOrb.angulo * sentidoOrbita;
+      orbita_aux.rotation.y = rotacionInicialOrb.angulo * sentidoOrbita;
     })
     .repeat (Infinity)
     .start();
 	
-	orbita.add(this.elCuerpoCeleste);
+	this.orbita.add(this.elCuerpoCeleste);
 	
 	
 	
-	this.add (orbita);	
+	this.add (this.orbita);	
 	
 	
-}
+	
+} // Fin CuerpoCeleste
 
 
 
@@ -86,13 +100,26 @@ CuerpoCeleste.prototype.startStop = function (onOff) {
   if (onOff) {
     // Recordar. Para acceder a los atributos de la clase hay que usar obligatoriamente la notación this.variable
     this.interpolador.resume();
+	this.interpoladorOrb.resume();
   } else {
     this.interpolador.pause();
+	this.interpoladorOrb.pause();
   }
 }
 
 // Este método se incluye para explicar como se redefinen métodos y como se haría una llamada al método equivalente de la superclase.
 // Se explicará en la clase  Estrella  que hereda de  Astro.
 CuerpoCeleste.prototype.metodo = function () {
-  console.log ('Soy un CuerpoCeleste');
+  console.log ('Soy un CuerpoCeleste: '+this.nombre);
+}
+
+
+
+CuerpoCeleste.prototype.addSatelite = function (sat){
+	console.log ('Añado satelite');
+	this.satelites.push("hola");
+	sat.position.x = this.elCuerpoCeleste.position.x;
+	this.orbita.add(sat);
+	
+
 }

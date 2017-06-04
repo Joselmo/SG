@@ -73,12 +73,27 @@ TheScene = function (renderer) {
    */
   var createModel = function () {
     var sol = new CuerpoCeleste(10,'tierra.jpg','tierra',
-	5,1,	// Periodo rotacion , sentido
-	5,1,30	// Periodo orbital, sentido, radio
+	50,1,	// Periodo rotacion , sentido
+	500,1,30	// Periodo orbital, sentido, radio
 	);
-    // Ejemplo de llamada a un método que está sobreescrito y en su sobreescritura llama al mismo método de la superclase. Verlo en las clases Astro y Estrella
+    // Ejemplo de llamada a un método que está sobreescrito y en su sobreescritura 
+	// llama al mismo método de la superclase. Verlo en las clases Astro y Estrella
     sol.metodo();
     return sol;
+  }
+  
+  var createSat = function (radio_cuerpo, textura, nombre,
+				rotacion,rotacion_sentido,
+				orbita,orbita_sentido, radio_orbita){
+					
+	var sat = new CuerpoCeleste(radio_cuerpo,textura,nombre,
+	rotacion,rotacion_sentido,	
+	orbita,orbita_sentido,radio_orbita	
+	);
+    // Ejemplo de llamada a un método que está sobreescrito y en su sobreescritura
+//	llama al mismo método de la superclase. Verlo en las clases Astro y Estrella
+    sat.metodo();
+	return sat;
   }
   
   /// Inicializador
@@ -91,12 +106,19 @@ TheScene = function (renderer) {
     axis = new THREE.AxisHelper (25);
     self.add (axis);
     model = createModel ();
+	sate = createSat(5,'tierra.jpg','miniT',5,1,5,1,30);
+	
+    model.addSatelite(sate);
+	
+	
     self.add (model);
   }
   
   // public
 
-  /// Teniendo en cuenta los controles de la GUI se modifica en la escena todo lo necesario. Se realliza mediante mensajes a los objetos que correspondan. Los mensajes al modelo se realizan a través de su fachada.
+  /// Teniendo en cuenta los controles de la GUI se modifica en la escena todo
+//  lo necesario. Se realliza mediante mensajes a los objetos que correspondan. 7
+//Los mensajes al modelo se realizan a través de su fachada.
   this.animate = function (controls) {
     // Se muestran o no los ejes
     axis.visible = controls.axis;
